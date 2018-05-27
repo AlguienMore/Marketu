@@ -9,6 +9,7 @@ import {createStackNavigator} from 'react-navigation';
 
 import Menu from './Pantallas/Menu';
 import Login from './Pantallas/Login';
+import NewUser from './Pantallas/NewUser';
 
 export default class App extends React.Component {
     render() {
@@ -22,6 +23,7 @@ const Navegador = createStackNavigator(
 
         login: Login,
         menu: Menu,
+        newuser: NewUser,
 
     },
     {

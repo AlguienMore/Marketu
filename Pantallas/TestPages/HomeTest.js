@@ -6,8 +6,7 @@ import {
 } from 'react-native';
 import {Container, Header, Right, Footer, FooterTab, Icon, Title, Button, Content, Left, Body} from 'native-base';
 
-type Props = {};
-export default class HomeTest extends Component<Props> {
+export default class HomeTest extends React.Component {
     render() {
         return (
             <Container>

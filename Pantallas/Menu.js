@@ -10,9 +10,9 @@ import Searchpage from "./HomePages/Searchpage";
 import Buypage from "./HomePages/Buypage";
 import Profilepage from "./HomePages/Profilepage";
 
-type Props = {};
+//type Props = {};
 
-export default class Menu extends Component<Props> {
+export default class Menu extends React.Component {
     constructor(props){
         super(props)
         this.state = {index: 0}

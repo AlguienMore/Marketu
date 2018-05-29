@@ -9,7 +9,7 @@ import {Container, Header, Form, Footer, Item, Label, Input, FooterTab, Icon, Ti
 import * as firebase from 'firebase';
 
 // Initializa Firebase
-var config = {
+/*var config = {
     apiKey: "AIzaSyCzDXmy53FGtSAdK1N5KFeouz5E5VzdyJ8",
     authDomain: "marketu-713b9.firebaseapp.com",
     databaseURL: "https://marketu-713b9.firebaseio.com",
@@ -17,34 +17,34 @@ var config = {
     storageBucket: "marketu-713b9.appspot.com",
     messagingSenderId: "466641196532"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);*/
 
-export default class Login extends React.Component {
-
+export default class NewUser extends React.Component {
+    
     constructor (){
         super()
         this.state = {
-            user: "",
-            pass: ""
+          user: null,
+          contraseña: null
         }
+      }
+
+    guardar_usuario(){
+        if (this.state.user != null && this.state.contraseña != null){
+            alert("Registro exitoso!!");
+            firebase.auth().createUserWithEmailAndPassword(this.state.user, this.state.contraseña).catch(function(error){
+                //si ocurre un error
+                var errorCode = error.code;
+                alert("ha ocurrido un error, recuerde usar una dirección correo electronico válida");
+                var erorMessage = error.message;
+                //...
+            });
+        }else{
+            alert("No ha digitao ningún valor, intente de nuevo");
+        }
+        this.props.navigation.navigate('login');
     }
 
-    acceder(){
-        firebase.auth().signInWithEmailAndPassword(this.state.user, this.state.pass)
-            .then(() => this.props.navigation.navigate('menu') ) //Al iniciar sesión se abrirá el menú principal
-            .catch(error => alert("!No se ha podido iniciar sesión! Verifique que los datos proporcionados sean válidos"))
-        // En caso de que ocurra un error.
-    }
-
-    Salir(){
-        firebase.auth().signOut().then(function() {
-            // Cierre de sesión exitoso
-            alert("ha cerrado sesión correctamente")
-        }).catch(function(error) {
-            // En caso de que ocurra un error
-            alert("he ocurrio un error inesperado al cerrar sesión, intente de nuevo")
-        });
-    }
     render() {
         return (
             <Container style={estilos.container}>
@@ -52,7 +52,7 @@ export default class Login extends React.Component {
                     <Left/>
                     <Body>
                     <Title>
-                        Login
+                        Registrar un nuevo usuario
                     </Title>
                     </Body>
                     <Right/>
@@ -61,23 +61,20 @@ export default class Login extends React.Component {
                 <Content >
                     <Form>
                         <Item floatingLabel>
-                            <Label>Correo electronico</Label>
+                            <Label>Digite Correo Electronico</Label>
                             <Input type = "text"
                                    onChangeText={(user) => this.setState({user})}
-                                   value = {this.state.user}/>
+                            value = {this.state.user}/>
                         </Item>
                         <Item floatingLabel>
-                            <Label>Contraseña</Label>
+                            <Label>Digite la Contraseña</Label>
                             <Input type = "text"
-                                   onChangeText={(pass) => this.setState({pass})}
-                                   value = {this.state.pass}/>
+                                   onChangeText={(contraseña) => this.setState({contraseña})}
+                            value = {this.state.contraseña}/>
                         </Item>
                     </Form>
-                    <Button onPress={() => this.acceder()} block>
-                        <Text>Login</Text>
-                    </Button>
-                    <Button onPress={() => this.props.navigation.navigate('newuser')} block>
-                        <Text>Registrarse</Text>
+                    <Button onPress= {() => this.guardar_usuario()} block>
+                        <Text>Registrar Usuario</Text>
                     </Button>
                 </Content>
             </Container>

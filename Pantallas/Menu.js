@@ -4,11 +4,24 @@ import {
     StyleSheet,
     Text
 } from 'react-native';
-import {Container, Header, Right, Footer, FooterTab, Icon, Title, Button, Content, Left, Body} from 'native-base';
+import {
+    Container,
+    Header,
+    Right,
+    Footer,
+    FooterTab,
+    Title,
+    Button,
+    Content,
+    Left,
+    Body,
+    Drawer
+} from 'native-base';
 import Homepage from "./HomePages/Homepage";
 import Searchpage from "./HomePages/Searchpage";
 import Buypage from "./HomePages/Buypage";
 import Profilepage from "./HomePages/Profilepage";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //type Props = {};
 
@@ -21,55 +34,74 @@ export default class Menu extends React.Component {
     switchScreen(index){
         this.setState({index: index})
     }
+
+    /*switchTheme(){
+
+
+    }*/
     render() {
         let ComponenteTest = null;
+        let headernamebaby = null;
+        let colorThemeActivated = false;
+        let stylos = null;
+        if(colorThemeActivated){
+            stylos = "True"
+
+        }else{
+            stylos = "False"
+        }
 
         if (this.state.index == 0){
             ComponenteTest = Homepage
+            headernamebaby = "Pagina de Inicio"
         }else if(this.state.index == 1){
             ComponenteTest = Searchpage
+            headernamebaby = "Busqueda"
         }else if (this.state.index== 2){
             ComponenteTest = Buypage
+            headernamebaby = "Comprar"
         }else {
             ComponenteTest = Profilepage
+            headernamebaby = "Perfil"
         }
 
         return (
             <Container contentContainerStyle={styles.contentContainer}>
-                <Header androidStatusBarColor={'#3f678f'} style={styles.foreground}>
-                    <Left>
-                        <Button onPress={() => this.props.navigation.goBack()} transparent>
-                            <Icon name='arrow-back'/>
-
-                        </Button>
-                    </Left>
+                <Header androidStatusBarColor={'#335d7d'} style={styles.foreground} noLeft>
+                    <Left/>
                     <Body>
                     <Title>{headernamebaby}</Title>
                     </Body>
-                    <Right/>
+                    <Right>
+                        <Button onPress={() => this.props.navigation.goBack()} transparent>
+                            <Icon name='sign-out' size={30} color='#fff'/>
+
+                        </Button>
+                    </Right>
                 </Header>
                 <Content style={styles.container}>
                     <ComponenteTest/>
+
                 </Content>
                 <Footer>
                     <FooterTab style={styles.foreground}>
                         <Button onPress={() => this.switchScreen(0)}>
-                            <Text>
+                            <Text style={styles.textoresaltar}>
                                 Inicio
                             </Text>
                         </Button>
                         <Button onPress={() => this.switchScreen(1)}>
-                            <Text>
+                            <Text style={styles.textoresaltar}>
                                 Buscar
                             </Text>
                         </Button>
                         <Button onPress={() => this.switchScreen(2)}>
-                            <Text>
+                            <Text style={styles.textoresaltar}>
                                 Comprar
                             </Text>
                         </Button>
                         <Button onPress={() => this.switchScreen(3)}>
-                            <Text>
+                            <Text style={styles.textoresaltar}>
                                 Perfil
                             </Text>
                         </Button>
@@ -92,6 +124,7 @@ const styles = StyleSheet.create({
     },
     foreground: {
         backgroundColor: '#4182AA',
+        color: '#f7f0e9',
     },
     welcome: {
         fontSize: 20,
@@ -116,4 +149,13 @@ const styles = StyleSheet.create({
     }
 });
 
-const headernamebaby = "Hi";
+const estilotest = StyleSheet.create({
+    container: {
+        flex: 1,
+        //alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+
+});
+
+//const headernamebaby = "Hi";

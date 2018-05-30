@@ -1,23 +1,8 @@
-/*
-            PLACEHOLDER CODE
-
- */
 
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Container, Header, Form, Footer, Item, Label, Input, FooterTab, Icon, Title, Button, Content, Left, Body, Right} from 'native-base';
 import * as firebase from 'firebase';
-
-// Initializa Firebase
-var config = {
-    apiKey: "AIzaSyCzDXmy53FGtSAdK1N5KFeouz5E5VzdyJ8",
-    authDomain: "marketu-713b9.firebaseapp.com",
-    databaseURL: "https://marketu-713b9.firebaseio.com",
-    projectId: "marketu-713b9",
-    storageBucket: "marketu-713b9.appspot.com",
-    messagingSenderId: "466641196532"
-  };
-  firebase.initializeApp(config);
 
 export default class Login extends React.Component {
 
@@ -29,6 +14,12 @@ export default class Login extends React.Component {
         }
     }
 
+    componentWillMount(){
+
+        if(!firebase.apps.length){
+            firebase.initializeApp();
+        }
+    }
     acceder(){
         firebase.auth().signInWithEmailAndPassword(this.state.user, this.state.pass)
             .then(() => this.props.navigation.navigate('menu') ) //Al iniciar sesión se abrirá el menú principal
@@ -86,6 +77,10 @@ export default class Login extends React.Component {
 }
 
 const estilos = StyleSheet.create({
+    footertext:{
+
+      color: '#deff7c',
+    },
     container:{
     backgroundColor: '#263238',
 

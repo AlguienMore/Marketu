@@ -6,12 +6,7 @@ export default class Searchpage extends React.Component{
     render() {
         return(
             <View>
-                <Text style={estilosdeprueba.textoerror}>Error</Text>
-                <Text style={estilosdeprueba.textoadvertencia}>Advertencia</Text>
-                <Text style={estilosdeprueba.textoinfo}>Info</Text>
-                <Text style={estilosdeprueba.textocorrecto}>Correcto</Text>
-                <Text style={estilosdeprueba.textoaresaltar}>Resaltado</Text>
-                <Text style={estilosdeprueba.textonormal}>Normal</Text>
+                <Text style={estilosdeprueba.textonormal}>Pagina de Busqueda</Text>
             </View>
 
         );

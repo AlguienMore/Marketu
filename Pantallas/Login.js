@@ -3,6 +3,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Container, Header, Form, Footer, Item, Label, Input, FooterTab, Icon, Title, Button, Content, Left, Body, Right} from 'native-base';
 import * as firebase from 'firebase';
+import Firebase from "./Firebase";
 
 export default class Login extends React.Component {
 
@@ -12,6 +13,7 @@ export default class Login extends React.Component {
             user: "",
             pass: ""
         }
+        Firebase.initialize();
     }
 
     componentWillMount(){

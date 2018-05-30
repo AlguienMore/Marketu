@@ -20,6 +20,7 @@ import {
 import Homepage from "./HomePages/Homepage";
 import Searchpage from "./HomePages/Searchpage";
 import Buypage from "./HomePages/Buypage";
+import Producto from  "./HomePages/Producto";
 import Profilepage from "./HomePages/Profilepage";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -58,7 +59,7 @@ export default class Menu extends React.Component {
             ComponenteTest = Searchpage
             headernamebaby = "Busqueda"
         }else if (this.state.index== 2){
-            ComponenteTest = Buypage
+            ComponenteTest = Producto
             headernamebaby = "Comprar"
         }else {
             ComponenteTest = Profilepage

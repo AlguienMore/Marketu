@@ -4,11 +4,24 @@ import {
     StyleSheet,
     Text
 } from 'react-native';
-import {Container, Header, Right, Footer, FooterTab, Icon, Title, Button, Content, Left, Body} from 'native-base';
+import {
+    Container,
+    Header,
+    Right,
+    Footer,
+    FooterTab,
+    Title,
+    Button,
+    Content,
+    Left,
+    Body,
+    Drawer
+} from 'native-base';
 import Homepage from "./HomePages/Homepage";
 import Searchpage from "./HomePages/Searchpage";
 import Buypage from "./HomePages/Buypage";
 import Profilepage from "./HomePages/Profilepage";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //type Props = {};
 
@@ -54,20 +67,21 @@ export default class Menu extends React.Component {
 
         return (
             <Container contentContainerStyle={styles.contentContainer}>
-                <Header androidStatusBarColor={'#335d7d'} style={styles.foreground}>
+                <Header androidStatusBarColor={'#335d7d'} style={styles.foreground} noLeft>
                     <Left/>
                     <Body>
                     <Title>{headernamebaby}</Title>
                     </Body>
                     <Right>
                         <Button onPress={() => this.props.navigation.goBack()} transparent>
-                            <Icon name='account_circle'/>
+                            <Icon name='sign-out' size={30} color='#fff'/>
 
                         </Button>
                     </Right>
                 </Header>
                 <Content style={styles.container}>
                     <ComponenteTest/>
+
                 </Content>
                 <Footer>
                     <FooterTab style={styles.foreground}>

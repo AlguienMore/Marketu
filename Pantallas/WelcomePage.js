@@ -18,8 +18,9 @@ export default class WelcomePage extends React.Component {
             <View style={styles.container}>
                 <TouchableHighlight onPress={() => this.props.navigation.navigate('login')}>
             <Image
-                style={styles.image}
+                style={{flex:1, height: undefined, width: undefined}}
                 source={indice.welcome}
+                resizeMode="contain"
             />
 
                 </TouchableHighlight>
@@ -43,8 +44,5 @@ const styles = StyleSheet.create({
 
     },
 
-    image: {
-        width: 300,
-        height: 300,
-    },
+
 });

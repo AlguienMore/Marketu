@@ -41,7 +41,7 @@ const Navegador = createStackNavigator(
     },
     {
         headerMode: 'none',
-        initialRouteName: 'welcomepage',
+        initialRouteName: 'login',
     });
 
 

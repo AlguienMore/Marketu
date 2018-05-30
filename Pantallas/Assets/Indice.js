@@ -1,6 +1,6 @@
 const  imagenes = {
 
-        welcome: require("../../Assets/Images/welcome_test.jpeg"),
+        welcome: require("../../Assets/Images/bitmap.png"),
 
 };
 
